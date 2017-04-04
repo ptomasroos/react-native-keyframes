@@ -1,9 +1,15 @@
-//
-//  PTRKeyframesViewManager.m
-//  Keyframes
-//
-//  Created by Tomas Roos on 2017-04-03.
-//  Copyright © 2017 Tomas Roos. All rights reserved.
-//
+#import "PTRKeyframesViewManager.h"
+#import "PTRKeyframesView.h"
 
-#import <Foundation/Foundation.h>
+@implementation PTRKeyframesViewManager
+
+RCT_EXPORT_MODULE();
+
+- (UIView *)view
+{
+    return [[PTRKeyframesView alloc] init];
+}
+
+RCT_EXPORT_VIEW_PROPERTY(src, NSDictionary);
+
+@end

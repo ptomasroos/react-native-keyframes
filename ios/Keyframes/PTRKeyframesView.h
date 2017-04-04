@@ -1,13 +1,7 @@
-//
-//  PTRKeyframesView.h
-//  Keyframes
-//
-//  Created by Tomas Roos on 2017-04-03.
-//  Copyright © 2017 Tomas Roos. All rights reserved.
-//
+#import <UIKit/UIKit.h>
+#import <React/RCTView.h>
+#import <keyframes/KFVector.h>
 
-#ifndef PTRKeyframesView_h
-#define PTRKeyframesView_h
-
-
-#endif /* PTRKeyframesView_h */
+@interface PTRKeyframesView : RCTView
+@property (nonatomic, copy) NSDictionary *src;
+@end

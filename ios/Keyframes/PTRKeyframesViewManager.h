@@ -1,13 +1,5 @@
-//
-//  PTRKeyframesViewManager.h
-//  Keyframes
-//
-//  Created by Tomas Roos on 2017-04-03.
-//  Copyright © 2017 Tomas Roos. All rights reserved.
-//
+#import <React/RCTViewManager.h>
 
-#ifndef PTRKeyframesViewManager_h
-#define PTRKeyframesViewManager_h
+@interface PTRKeyframesViewManager : RCTViewManager
 
-
-#endif /* PTRKeyframesViewManager_h */
+@end
