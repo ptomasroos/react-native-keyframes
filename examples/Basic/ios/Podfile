@@ -1,0 +1,20 @@
+target 'Basic' do
+  pod 'React', subspecs: [
+    'RCTAnimation',
+    'RCTPushNotification',
+    'RCTActionSheet',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+    'DevSupport',
+  ], path: '../node_modules/react-native'
+
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  pod 'react-native-keyframes',  path: '../node_modules/@ptomasroos/react-native-keyframes/'
+end
