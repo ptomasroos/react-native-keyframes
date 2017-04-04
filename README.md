@@ -7,3 +7,6 @@ How to use!
 ```
 
 ```
+
+
+I stole code from https://github.com/underscopeio/react-native-facebook-keyframes, thanks for that boiler plate!
