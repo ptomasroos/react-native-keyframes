@@ -50,7 +50,7 @@
     
     __unsafe_unretained typeof(self) weakSelf = self;
     
-    [_vectorLayer setAnimationDidStopBlock:^{
+    [_vectorLayer setAnimationDidStopBlock:^(void) {
         weakSelf.onStop(nil);
     }];
         
