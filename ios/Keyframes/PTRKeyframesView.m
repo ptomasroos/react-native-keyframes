@@ -48,11 +48,11 @@
     
     [self.layer addSublayer:_vectorLayer];
     
-    __unsafe_unretained typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     [_vectorLayer setAnimationDidStopBlock:^(BOOL finished) {
         NSLog(@"setAnimationDidStopBlock");
-        if (finished) {
+        if (finished && weakSelf != nil) {
             NSLog(@"setAnimationDidStopBlock finished");
             weakSelf.onStop(nil);
         }
