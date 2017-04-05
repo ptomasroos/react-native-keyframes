@@ -80,7 +80,7 @@
 
 - (void)playOnce
 {
-    NSLog(@"PTRKeyframesView setRepeatCount");
+    NSLog(@"PTRKeyframesView playOnce");
     _hasPendingPlayOnce = true;
     [self maybePlayOnce];
     
