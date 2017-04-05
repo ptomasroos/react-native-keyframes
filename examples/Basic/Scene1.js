@@ -14,14 +14,26 @@ import { Keyframes } from '@ptomasroos/react-native-keyframes';
 class Scene1 extends Component {
   componentDidMount() {
     if (this.flirtAnimation) {
-      //      this.flirtAnimation.start();
+      this.flirtAnimation.start();
+    }
+
+    if (this.likeAnimation) {
+      this.likeAnimation.start();
+    }
+
+    if (this.nearAnimation) {
+      this.nearAnimation.start();
     }
   }
 
   render() {
     return (
       <ScrollView>
-
+        <Keyframes
+          ref={ref => this.likeAnimation = ref}
+          src={require('./like.kf.json')}
+          style={{ width: 300, height: 300 }}
+        />
         <Text style={styles.welcome}>
           Scene1
         </Text>
@@ -64,6 +76,11 @@ class Scene1 extends Component {
         <Text style={styles.welcome}>
           Scene1
         </Text>
+        <Keyframes
+          ref={ref => this.nearAnimation = ref}
+          src={require('./near.kf.json')}
+          style={{ width: 300, height: 300 }}
+        />
         <Text style={styles.welcome}>
           Scene1
         </Text>
