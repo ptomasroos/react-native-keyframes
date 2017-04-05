@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.facebook.keyframes.KeyframesDrawable;
+import com.facebook.keyframes.KeyframesDrawable.OnAnimationEnd;
 import com.facebook.keyframes.KeyframesDrawableBuilder;
 import com.facebook.keyframes.deserializers.KFImageDeserializer;
 import com.facebook.keyframes.model.KFImage;
@@ -15,7 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class KeyframesView extends ImageView {
+public class KeyframesView extends ImageView implements OnAnimationEnd {
     private ThemedReactContext mThemedReactcontext;
     private KeyframesDrawable mKeyFramesDrawable;
 
@@ -63,13 +64,14 @@ public class KeyframesView extends ImageView {
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         this.setImageDrawable(this.mKeyFramesDrawable);
         this.setImageAlpha(0);
+        this.mKeyFramesDrawable.setAnimationListener(this);
     }
 
-    private void maybeEmitEvent() {
+    @Override
+    public void onAnimationEnd() {
         mThemedReactcontext
                 .getJSModule(RCTEventEmitter.class)
                 .receiveEvent(this.getId(), Events.EVENT_ON_STOP.toString(), null);
-
     }
 
     public enum Events {
