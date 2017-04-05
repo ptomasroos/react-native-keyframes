@@ -61,10 +61,8 @@ class Scene1 extends Component {
           <TouchableHighlight onPress={() => this.flirtAnimation.seek(0.4)}>
             <Text>Seek to 1</Text>
           </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => this.flirtAnimation.setRepeatCount(1)}
-          >
-            <Text>Repeat 1</Text>
+          <TouchableHighlight onPress={() => this.flirtAnimation.playOnce()}>
+            <Text>Play once</Text>
           </TouchableHighlight>
         </View>
         <Text style={styles.welcome}>
