@@ -44,6 +44,7 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
     }
 
     public void start() {
+        this.mKeyFramesDrawable.setAnimationListener(this);
         this.mKeyFramesDrawable.startAnimation();
     }
 
@@ -52,6 +53,7 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
     }
 
     public void playOnce() {
+        this.mKeyFramesDrawable.setAnimationListener(this);
         this.mKeyFramesDrawable.playOnce();
     }
 
@@ -64,7 +66,6 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         this.setImageDrawable(this.mKeyFramesDrawable);
         this.setImageAlpha(0);
-        this.mKeyFramesDrawable.setAnimationListener(this);
     }
 
     @Override
