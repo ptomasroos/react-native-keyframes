@@ -10,8 +10,23 @@ import {
 const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
 
 class Keyframes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onStop = this.onStop.bind(this);
+  }
+
+  onStop(e) {
+    this.props.onStop && this.props.onStop();
+  }
+
   render() {
-    return <PTRKeyframesView ref={ref => this.ref = ref} {...this.props} />;
+    return (
+      <PTRKeyframesView
+        onStop={this.onStop}
+        ref={ref => this.ref = ref}
+        {...this.props}
+      />
+    );
   }
 
   seek(position) {
