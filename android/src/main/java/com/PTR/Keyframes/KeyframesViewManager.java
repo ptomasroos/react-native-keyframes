@@ -35,7 +35,9 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
     }
 
     @Override
-    public @Nullable Map<String, Integer> getCommandsMap() {
+    public
+    @Nullable
+    Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(
                 "start", COMMAND_START,
                 "stop", COMMAND_STOP,
@@ -60,5 +62,15 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
                 root.seek(args.getDouble(0));
                 break;
         }
+    }
+
+    @Override
+    @Nullable
+    public Map getExportedCustomDirectEventTypeConstants() {
+        MapBuilder.Builder builder = MapBuilder.builder();
+        for (KeyframesView.Events event : KeyframesView.Events.values()) {
+            builder.put(event.toString(), MapBuilder.of("registrationName", event.toString()));
+        }
+        return builder.build();
     }
 }

@@ -7,18 +7,22 @@ import com.facebook.keyframes.KeyframesDrawable;
 import com.facebook.keyframes.KeyframesDrawableBuilder;
 import com.facebook.keyframes.deserializers.KFImageDeserializer;
 import com.facebook.keyframes.model.KFImage;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class KeyframesView extends ImageView {
+    private ThemedReactContext mThemedReactcontext;
     private KeyframesDrawable mKeyFramesDrawable;
 
-    public KeyframesView(ReactContext reactContext) {
-        super(reactContext);
+    public KeyframesView(ThemedReactContext themedReactContext) {
+        super(themedReactContext);
+
+        mThemedReactcontext = themedReactContext;
     }
 
     public void setSrc(final ReadableMap src) {
@@ -51,7 +55,7 @@ public class KeyframesView extends ImageView {
     }
 
     public void seek(double position) {
-        this.mKeyFramesDrawable.seekToProgress((float)position);
+        this.mKeyFramesDrawable.seekToProgress((float) position);
     }
 
     private void setKFImage(KFImage kfImage) {
@@ -59,5 +63,27 @@ public class KeyframesView extends ImageView {
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         this.setImageDrawable(this.mKeyFramesDrawable);
         this.setImageAlpha(0);
+    }
+
+    private void maybeEmitEvent() {
+        mThemedReactcontext
+                .getJSModule(RCTEventEmitter.class)
+                .receiveEvent(this.getId(), Events.EVENT_ON_STOP.toString(), null);
+
+    }
+
+    public enum Events {
+        EVENT_ON_STOP("onStop");
+
+        private final String mName;
+
+        Events(final String name) {
+            mName = name;
+        }
+
+        @Override
+        public String toString() {
+            return mName;
+        }
     }
 }
