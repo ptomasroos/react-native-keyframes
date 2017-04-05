@@ -78,7 +78,7 @@ class Scene1 extends Component {
         </Text>
         <Keyframes
           ref={ref => this.nearAnimation = ref}
-          src={require('./near.kf.json')}
+          src={require('./near-you.kf.json')}
           style={{ width: 300, height: 300 }}
         />
         <Text style={styles.welcome}>
