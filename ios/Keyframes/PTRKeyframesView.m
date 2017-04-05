@@ -43,9 +43,7 @@
     KFVector *vector = KFVectorFromDictionary(_src);
     
     _vectorLayer = [KFVectorLayer new];
-    const CGFloat shortSide = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    const CGFloat longSide = MAX(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    _vectorLayer.frame = CGRectMake(shortSide / 4, longSide / 2 - shortSide / 4, shortSide / 2, shortSide / 2);
+    _vectorLayer.frame = self.bounds;
     _vectorLayer.faceModel = vector;
     
     [self.layer addSublayer:_vectorLayer];
