@@ -5,7 +5,7 @@
 @interface PTRKeyframesView : RCTView
 @property (nonatomic, copy) NSDictionary *src;
 - (void)seek:(CGFloat)position;
-- (void)setRepeatCount:(CGFloat)count;
+- (void)playOnce;
 - (void)start;
 - (void)stop;
 @end

@@ -27,7 +27,7 @@ RCT_EXPORT_METHOD(seek:(nonnull NSNumber *)reactTag position:(CGFloat)position)
     }];
 }
 
-RCT_EXPORT_METHOD(setRepeatCount:(nonnull NSNumber *)reactTag count:(CGFloat)count)
+RCT_EXPORT_METHOD(playOnce:(nonnull NSNumber *)reactTag)
 {
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
         id view = viewRegistry[reactTag];
@@ -35,7 +35,7 @@ RCT_EXPORT_METHOD(setRepeatCount:(nonnull NSNumber *)reactTag count:(CGFloat)cou
             RCTLogError(@"Invalid view returned from registry, expecting PTRKeyframesView, got: %@", view);
         } else {
             PTRKeyframesView *keyframesView = (PTRKeyframesView *)view;
-            [keyframesView setRepeatCount:count];
+            [keyframesView playOnce];
         }
     }];
 }

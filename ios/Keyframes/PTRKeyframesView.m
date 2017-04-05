@@ -9,8 +9,8 @@
     KFVectorLayer *_vectorLayer;
     BOOL _hasPendingStart;
     BOOL _hasPendingStop;
+    BOOL _hasPendingPlayOnce;
     CGFloat _pendingSeek;
-    CGFloat _pendingRepeatCount;
 }
 
 - (instancetype)init
@@ -51,7 +51,7 @@
     [self.layer addSublayer:_vectorLayer];
     
     [self maybeSeek];
-    [self maybeSetRepeatCount];
+    [self maybePlayOnce];
     [self maybeStart];
     [self maybeStop];
 }
@@ -76,24 +76,23 @@
     if (_pendingSeek && _vectorLayer) {
         CGFloat position = _pendingSeek;
         _pendingSeek = 0.0;
-        [_vectorLayer resetAnimations];
         [_vectorLayer seekToProgress:position];
     }
 }
 
-- (void)setRepeatCount:(CGFloat)count
+- (void)playOnce
 {
     NSLog(@"PTRKeyframesView setRepeatCount");
-    _pendingRepeatCount = count;
-    [self maybeSetRepeatCount];
+    _hasPendingPlayOnce = true;
+    [self maybePlayOnce];
     
 }
 
-- (void)maybeSetRepeatCount {
-    if (_pendingRepeatCount && _vectorLayer) {
-        CGFloat count = _pendingRepeatCount;
-        _pendingRepeatCount = 0.0;
-        [_vectorLayer setRepeatCount:count];
+- (void)maybePlayOnce {
+    if (_hasPendingPlayOnce && _vectorLayer) {
+        _hasPendingPlayOnce = false;
+        [_vectorLayer setRepeatCount:1.0];
+        [_vectorLayer startAnimation];
     }
 }
 

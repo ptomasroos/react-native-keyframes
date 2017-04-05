@@ -18,8 +18,8 @@ class Keyframes extends React.Component {
     this.runCommand('seek', [position]);
   }
 
-  setRepeatCount(count) {
-    this.runCommand('setRepeatCount', [count]);
+  playOnce(count) {
+    this.runCommand('playOnce');
   }
 
   start() {
