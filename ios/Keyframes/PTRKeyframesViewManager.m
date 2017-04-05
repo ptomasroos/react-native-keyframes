@@ -67,4 +67,6 @@ RCT_EXPORT_METHOD(stop:(nonnull NSNumber *)reactTag)
     }];
 }
 
+RCT_EXPORT_VIEW_PROPERTY(onStop, RCTDirectEventBlock);
+
 @end

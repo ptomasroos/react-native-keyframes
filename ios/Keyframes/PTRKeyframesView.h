@@ -3,6 +3,7 @@
 #import <keyframes/KFVector.h>
 
 @interface PTRKeyframesView : RCTView
+@property (nonatomic, copy) RCTDirectEventBlock onStop;
 @property (nonatomic, copy) NSDictionary *src;
 - (void)seek:(CGFloat)position;
 - (void)playOnce;

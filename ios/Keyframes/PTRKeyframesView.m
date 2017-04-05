@@ -48,6 +48,12 @@
     
     [self.layer addSublayer:_vectorLayer];
     
+    __unsafe_unretained typeof(self) weakSelf = self;
+    
+    [_vectorLayer setAnimationDidStopBlock:^{
+        weakSelf.onStop(nil);
+    }];
+        
     [self maybeSeek];
     [self maybePlayOnce];
     [self maybeStart];
