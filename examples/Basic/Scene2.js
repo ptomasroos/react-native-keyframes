@@ -43,7 +43,7 @@ class Scene2 extends Component {
           style={{ width: 300, height: 300 }}
         />
         <TouchableHighlight onPress={() => this.props.changeScene('Scene1')}>
-          <Text>Go to Scene2</Text>
+          <Text>Go to Scene1</Text>
         </TouchableHighlight>
         <Text style={styles.welcome}>
           Scene2
