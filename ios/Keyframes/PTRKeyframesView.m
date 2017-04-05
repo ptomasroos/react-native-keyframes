@@ -50,8 +50,12 @@
     
     __unsafe_unretained typeof(self) weakSelf = self;
     
-    [_vectorLayer setAnimationDidStopBlock:^(void) {
-        weakSelf.onStop(nil);
+    [_vectorLayer setAnimationDidStopBlock:^(BOOL finished) {
+        NSLog(@"setAnimationDidStopBlock");
+        if (finished) {
+            NSLog(@"setAnimationDidStopBlock finished");
+            weakSelf.onStop(nil);
+        }
     }];
         
     [self maybeSeek];
