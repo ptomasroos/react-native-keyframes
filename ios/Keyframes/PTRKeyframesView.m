@@ -86,7 +86,7 @@
     if (_hasPendingSeek && _vectorLayer) {
         CGFloat position = _pendingSeek;
         _hasPendingSeek = false;
-        _pendingSeek = 0.0;
+        [_vectorLayer pauseAnimation];
         [_vectorLayer seekToProgress:position];
     }
 }
