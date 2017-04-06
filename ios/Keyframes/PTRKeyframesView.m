@@ -85,7 +85,7 @@
 - (void)maybeSeek {
     if (_hasPendingSeek && _vectorLayer) {
         CGFloat position = _pendingSeek;
-        _hasPendingSeek = true;
+        _hasPendingSeek = false;
         _pendingSeek = 0.0;
         [_vectorLayer seekToProgress:position];
     }
