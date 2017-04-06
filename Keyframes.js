@@ -33,7 +33,7 @@ class Keyframes extends React.Component {
     this.runCommand('seek', [position]);
   }
 
-  playOnce(count) {
+  playOnce() {
     this.runCommand('playOnce');
   }
 
