@@ -10,6 +10,7 @@
     BOOL _hasPendingStart;
     BOOL _hasPendingStop;
     BOOL _hasPendingPlayOnce;
+    BOOL _hasPendingSeek;
     CGFloat _pendingSeek;
 }
 
@@ -76,13 +77,15 @@
 - (void)seek:(CGFloat)position
 {
     NSLog(@"PTRKeyframesView seek");
+    _hasPendingSeek = true;
     _pendingSeek = position;
     [self maybeSeek];
 }
 
 - (void)maybeSeek {
-    if (_pendingSeek && _vectorLayer) {
+    if (_hasPendingSeek && _vectorLayer) {
         CGFloat position = _pendingSeek;
+        _hasPendingSeek = true;
         _pendingSeek = 0.0;
         [_vectorLayer seekToProgress:position];
     }
