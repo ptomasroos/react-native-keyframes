@@ -36,7 +36,7 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
 
         try {
             kfImage = KFImageDeserializer.deserialize(stream);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return;
         }
@@ -59,6 +59,11 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
 
     public void seek(double position) {
         this.mKeyFramesDrawable.seekToProgress((float) position);
+    }
+
+    public void destroy() {
+        this.setImageDrawable(null);
+        this.mKeyFramesDrawable = null;
     }
 
     private void setKFImage(KFImage kfImage) {

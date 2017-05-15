@@ -1,5 +1,7 @@
 package com.PTR.Keyframes;
 
+import android.util.Log;
+
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
@@ -72,5 +74,10 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
             builder.put(event.toString(), MapBuilder.of("registrationName", event.toString()));
         }
         return builder.build();
+    }
+
+    public void onDropViewInstance(KeyframesView view) {
+        Log.d("KeyframesViewManager", "onDropViewInstance");
+        view.destroy();
     }
 }
