@@ -1,7 +1,7 @@
 {
   "name": "@ptomasroos/react-native-keyframes",
   "version": "0.0.1",
-  "description": "React Native wrapper for Facebook Keyframes",
+  "description": "React Native wrapper for Facebook Keyframes with a imperative API",
   "main": "index.js",
   "repository": {
     "type": "git",
