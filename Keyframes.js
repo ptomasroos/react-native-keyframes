@@ -4,7 +4,7 @@ import {
   requireNativeComponent,
   View,
   UIManager,
-  findNodeHandle
+  findNodeHandle,
 } from 'react-native';
 
 const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
@@ -23,7 +23,7 @@ class Keyframes extends React.Component {
     return (
       <PTRKeyframesView
         onStop={this.onStop}
-        ref={ref => this.ref = ref}
+        ref={ref => (this.ref = ref)}
         {...this.props}
       />
     );
@@ -45,11 +45,15 @@ class Keyframes extends React.Component {
     this.runCommand('stop');
   }
 
+  resume() {
+    this.runCommand('resume');
+  }
+
   runCommand(name, args = []) {
     UIManager.dispatchViewManagerCommand(
       this.getHandle(),
       UIManager.PTRKeyframesView.Commands[name],
-      args
+      args,
     );
   }
 
