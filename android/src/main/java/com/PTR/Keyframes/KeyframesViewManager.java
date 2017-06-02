@@ -20,6 +20,7 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
     public static final int COMMAND_STOP = 2;
     public static final int COMMAND_PLAY_ONCE = 3;
     public static final int COMMAND_SEEK = 4;
+    public static final int COMMAND_RESUME = 5;
 
     @Override
     public String getName() {
@@ -44,7 +45,8 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
                 "start", COMMAND_START,
                 "stop", COMMAND_STOP,
                 "playOnce", COMMAND_PLAY_ONCE,
-                "seek", COMMAND_SEEK
+                "seek", COMMAND_SEEK,
+                "resume", COMMAND_RESUME
         );
     }
 
@@ -62,6 +64,9 @@ public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
                 break;
             case COMMAND_SEEK:
                 root.seek(args.getDouble(0));
+                break;
+            case COMMAND_RESUME:
+                root.resume();
                 break;
         }
     }

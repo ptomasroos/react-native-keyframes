@@ -13,7 +13,6 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class KeyframesView extends ImageView implements OnAnimationEnd {
@@ -50,6 +49,10 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
 
     public void stop() {
         this.mKeyFramesDrawable.stopAnimation();
+    }
+
+    public void resume() {
+        this.mKeyFramesDrawable.resumeAnimation();
     }
 
     public void playOnce() {
