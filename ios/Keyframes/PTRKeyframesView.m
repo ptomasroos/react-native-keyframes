@@ -11,6 +11,7 @@
     BOOL _hasPendingStop;
     BOOL _hasPendingPlayOnce;
     BOOL _hasPendingSeek;
+    BOOL _isPlayOnce;
     CGFloat _pendingSeek;
 }
 
@@ -25,13 +26,13 @@
 
 - (void)insertReactSubview:(UIView *)view atIndex:(NSInteger)atIndex
 {
-    RCTLogError(@"Keyframes cannot have any subviews");
+    RCTLogError(@"PTRKeyframesView cannot have any subviews");
     return;
 }
 
 - (void)removeReactSubview:(UIView *)subview
 {
-    RCTLogError(@"Keyframes cannot have any subviews");
+    RCTLogError(@"PTRKeyframesView cannot have any subviews");
     return;
 }
 
@@ -49,16 +50,6 @@
     
     [self.layer addSublayer:_vectorLayer];
     
-    __weak typeof(self) weakSelf = self;
-    
-    [_vectorLayer setAnimationDidStopBlock:^(BOOL finished) {
-        NSLog(@"setAnimationDidStopBlock");
-        if (finished && weakSelf != nil) {
-            NSLog(@"setAnimationDidStopBlock finished");
-            weakSelf.onStop(nil);
-        }
-    }];
-        
     [self maybeSeek];
     [self maybePlayOnce];
     [self maybeStart];
@@ -95,6 +86,7 @@
 {
     NSLog(@"PTRKeyframesView playOnce");
     _hasPendingPlayOnce = true;
+    _isPlayOnce = true;
     [self maybePlayOnce];
     
 }
@@ -102,11 +94,34 @@
 - (void)maybePlayOnce {
     if (_hasPendingPlayOnce && _vectorLayer) {
         _hasPendingPlayOnce = false;
+        
+        [self addStopBlock];
         [_vectorLayer setRepeatCount:1.0];
         [_vectorLayer startAnimation];
     }
 }
 
+- (void)addStopBlock {
+    __weak PTRKeyframesView *weakSelf = self;
+    
+    [_vectorLayer setAnimationDidStopBlock:^(BOOL finished) {
+        NSLog(@"PTRKeyframesView setAnimationDidStopBlock");
+        
+        if (finished && weakSelf != nil) {
+            PTRKeyframesView *strongSelf = weakSelf;
+            NSLog(@"PTRKeyframesView setAnimationDidStopBlock finished");
+            strongSelf.onStop(nil);
+            if (strongSelf->_isPlayOnce) {
+                [strongSelf->_vectorLayer setAnimationDidStopBlock:nil];
+            }
+        }
+    }];
+
+}
+
+- (void)clearStopBlock {
+    [_vectorLayer setAnimationDidStopBlock:nil];
+}
 
 - (void)start
 {
@@ -118,6 +133,8 @@
 - (void)maybeStart {
     if (_hasPendingStart && _vectorLayer) {
         _hasPendingStart = false;
+        
+        [self addStopBlock];
         [_vectorLayer startAnimation];
     }
 }
@@ -133,7 +150,15 @@
     if (_hasPendingStop && _vectorLayer) {
         _hasPendingStop = false;
         [_vectorLayer pauseAnimation];
+        [self clearStopBlock];
     }
+}
+
+- (void)resume {
+    NSLog(@"PTRKeyframesView resume");
+    
+    [self addStopBlock];
+    [_vectorLayer resumeAnimation];
 }
 
 @end

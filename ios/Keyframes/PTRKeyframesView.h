@@ -9,4 +9,5 @@
 - (void)playOnce;
 - (void)start;
 - (void)stop;
+- (void)resume;
 @end
