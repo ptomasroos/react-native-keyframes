@@ -1,6 +1,10 @@
+# 0.0.3
+
+Added pause command
+
 # 0.0.2
 
-Added pause, resume commands
+Added resume command
 Fixed the onStop handler on IOS to be less verbose
 
 # 0.0.1
