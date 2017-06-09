@@ -51,6 +51,10 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
         this.mKeyFramesDrawable.stopAnimation();
     }
 
+    public void pause() {
+        this.mKeyFramesDrawable.pauseAnimation();
+    }
+
     public void resume() {
         this.mKeyFramesDrawable.resumeAnimation();
     }

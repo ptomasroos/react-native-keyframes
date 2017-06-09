@@ -45,6 +45,10 @@ class Keyframes extends React.Component {
     this.runCommand('stop');
   }
 
+  pause() {
+    this.runCommand('pause');
+  }
+
   resume() {
     this.runCommand('resume');
   }

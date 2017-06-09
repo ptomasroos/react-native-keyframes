@@ -116,7 +116,7 @@
             }
         }
     }];
-
+    
 }
 
 - (void)clearStopBlock {
@@ -152,6 +152,12 @@
         [_vectorLayer pauseAnimation];
         [self clearStopBlock];
     }
+}
+
+- (void)pause
+{
+    NSLog(@"PTRKeyframesView pause");
+    [_vectorLayer pauseAnimation];
 }
 
 - (void)resume {
