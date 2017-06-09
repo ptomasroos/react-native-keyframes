@@ -42,7 +42,7 @@ configurations.all {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.github.facebookincubator:Keyframes:master-SNAPSHOT'
+    compile 'com.github.facebookincubator:Keyframes:eaa06f6f01'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.facebook.react:react-native:+'
 }

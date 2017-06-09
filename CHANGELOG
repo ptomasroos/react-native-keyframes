@@ -1,3 +1,8 @@
+# 0.0.4
+
+Updated keyframes dependency
+Locked keyframes hash in Android to allow stable versioning
+
 # 0.0.3
 
 Added pause command

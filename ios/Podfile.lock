@@ -11,14 +11,14 @@ PODS:
   - Yoga (0.43.0-rc.4.React)
 
 DEPENDENCIES:
-  - keyframes (from `https://github.com/ptomasroos/Keyframes.git`, commit `3f0be2850fed20ad2f0c3db987ec6be846f3177c`)
+  - keyframes (from `https://github.com/facebookincubator/Keyframes.git`, commit `eaa06f6f015fc2182a21eaee7d764924e83ef7e3`)
   - React (from `../node_modules/react-native`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
   keyframes:
-    :commit: 3f0be2850fed20ad2f0c3db987ec6be846f3177c
-    :git: https://github.com/ptomasroos/Keyframes.git
+    :commit: eaa06f6f015fc2182a21eaee7d764924e83ef7e3
+    :git: https://github.com/facebookincubator/Keyframes.git
   React:
     :path: "../node_modules/react-native"
   Yoga:
@@ -26,14 +26,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   keyframes:
-    :commit: 3f0be2850fed20ad2f0c3db987ec6be846f3177c
-    :git: https://github.com/ptomasroos/Keyframes.git
+    :commit: eaa06f6f015fc2182a21eaee7d764924e83ef7e3
+    :git: https://github.com/facebookincubator/Keyframes.git
 
 SPEC CHECKSUMS:
   keyframes: 376103d22d3a527490c742438a8ba0881bb9eae1
   React: 23c4f6d61d7b1c9a17e735a5a6a4ec6f81db0cbf
   Yoga: dd8611baf02b29bffcb799822ce474f2f653bed5
 
-PODFILE CHECKSUM: 0cd0a347754491533c4e368ae2e1ef9516d3b64d
+PODFILE CHECKSUM: 430b8f15089b039c4958d1df41fb206e8ef25bc5
 
 COCOAPODS: 1.2.0
