@@ -2,5 +2,5 @@ target 'Keyframes' do
   pod 'React', path: '../node_modules/react-native'
   pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
-  pod 'keyframes', :git => 'https://github.com/facebookincubator/Keyframes.git', :commit => 'eaa06f6f015fc2182a21eaee7d764924e83ef7e3'
+  pod 'keyframes', '1.1.0'
 end
