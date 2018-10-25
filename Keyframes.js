@@ -12,11 +12,12 @@ const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
 class Keyframes extends React.Component {
   constructor(props) {
     super(props);
-    this.onStop = this.onStop.bind(this);
   }
 
-  onStop(e) {
-    this.props.onStop && this.props.onStop();
+  onStop = (e) => {
+    if (this.props.onStop) {
+      this.props.onStop();
+    }
   }
 
   render() {
