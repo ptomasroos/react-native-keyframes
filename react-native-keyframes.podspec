@@ -7,12 +7,12 @@ Pod::Spec.new do |s|
   s.summary      = package['description']
   s.author       = package['author']
 
-  s.homepage     = "https://github.com/happypancake/react-native-keyframes"
+  s.homepage     = "https://github.com/ptomasroos/react-native-keyframes"
 
   s.license      = "MIT"
   s.platform     = :ios, "7.0"
 
-  s.source       = { :git => "https://github.com/happypancake/react-native-keyframes.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ptomasroos/react-native-keyframes.git", :tag => "#{s.version}" }
   s.source_files = "ios/Keyframes/*.{h,m}"
 
   s.dependency "React"
