@@ -2,7 +2,6 @@ package com.PTR.Keyframes;
 
 import android.view.View;
 import android.widget.ImageView;
-
 import com.facebook.keyframes.KeyframesDrawable;
 import com.facebook.keyframes.KeyframesDrawable.OnAnimationEnd;
 import com.facebook.keyframes.KeyframesDrawableBuilder;
@@ -11,7 +10,6 @@ import com.facebook.keyframes.model.KFImage;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
@@ -82,6 +80,8 @@ public class KeyframesView extends ImageView implements OnAnimationEnd {
 
     @Override
     public void onAnimationEnd() {
+        super.onAnimationEnd();
+
         mThemedReactcontext
                 .getJSModule(RCTEventEmitter.class)
                 .receiveEvent(this.getId(), Events.EVENT_ON_STOP.toString(), null);

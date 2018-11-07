@@ -1,21 +1,16 @@
 package com.PTR.Keyframes;
 
 import android.util.Log;
-
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-
 import java.util.Map;
-
 import javax.annotation.Nullable;
 
 public class KeyframesViewManager extends SimpleViewManager<KeyframesView> {
-
-
     public static final int COMMAND_START = 1;
     public static final int COMMAND_STOP = 2;
     public static final int COMMAND_PLAY_ONCE = 3;
