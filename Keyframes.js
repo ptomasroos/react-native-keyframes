@@ -4,11 +4,12 @@ import {
   requireNativeComponent,
   UIManager,
   findNodeHandle,
+  View,
 } from 'react-native';
 
 const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
 
-type Props = {
+type Props = React.ElementConfig<typeof View> & {
   onStop: Function,
 };
 
