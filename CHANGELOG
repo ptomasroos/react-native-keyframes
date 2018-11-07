@@ -1,3 +1,8 @@
+# 1.0.1
+
+Pinned dependencies
+Updated android to implementation instead of compile
+
 # 1.0.0
 
 Released under the new npm package name react-native-keyframes
