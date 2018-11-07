@@ -1,20 +1,25 @@
-import React, { PropTypes } from 'react';
+// @flow
+import * as React from 'react';
 import {
-  NativeModules,
   requireNativeComponent,
-  View,
   UIManager,
   findNodeHandle,
 } from 'react-native';
 
 const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
 
-class Keyframes extends React.Component {
+type Props = {
+  onStop: Function
+};
+
+class Keyframes extends React.Component<Props> {
   constructor(props) {
     super(props);
+
+    this.ref = React.createRef();
   }
 
-  onStop = (e) => {
+  onStop = () => {
     if (this.props.onStop) {
       this.props.onStop();
     }
@@ -24,13 +29,13 @@ class Keyframes extends React.Component {
     return (
       <PTRKeyframesView
         onStop={this.onStop}
-        ref={ref => (this.ref = ref)}
+        ref={this.ref}
         {...this.props}
       />
     );
   }
 
-  seek(position) {
+  seek(position: number) {
     this.runCommand('seek', [position]);
   }
 
@@ -63,7 +68,7 @@ class Keyframes extends React.Component {
   }
 
   getHandle() {
-    return findNodeHandle(this.ref);
+    return findNodeHandle(this.ref.current);
   }
 }
 
