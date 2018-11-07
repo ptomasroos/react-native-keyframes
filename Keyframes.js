@@ -9,7 +9,7 @@ import {
 const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
 
 type Props = {
-  onStop: Function
+  onStop: Function,
 };
 
 class Keyframes extends React.Component<Props> {
@@ -23,15 +23,11 @@ class Keyframes extends React.Component<Props> {
     if (this.props.onStop) {
       this.props.onStop();
     }
-  }
+  };
 
   render() {
     return (
-      <PTRKeyframesView
-        onStop={this.onStop}
-        ref={this.ref}
-        {...this.props}
-      />
+      <PTRKeyframesView onStop={this.onStop} ref={this.ref} {...this.props} />
     );
   }
 
