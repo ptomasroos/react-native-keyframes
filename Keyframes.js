@@ -7,17 +7,17 @@ import {
   View,
 } from 'react-native';
 
-const PTRKeyframesView = requireNativeComponent('PTRKeyframesView', Keyframes);
+const PTRKeyframesView = requireNativeComponent('PTRKeyframesView');
 
 type Props = React.ElementConfig<typeof View> & {
   onStop: Function,
 };
 
 class Keyframes extends React.Component<Props> {
-  constructor(props) {
-    super(props);
+  ref = React.createRef<typeof PTRKeyframesView>();
 
-    this.ref = React.createRef();
+  constructor(props: Props) {
+    super(props);
   }
 
   onStop = () => {
@@ -56,7 +56,7 @@ class Keyframes extends React.Component<Props> {
     this.runCommand('resume');
   }
 
-  runCommand(name, args = []) {
+  runCommand(name: string, args?: Array<number> = []) {
     UIManager.dispatchViewManagerCommand(
       this.getHandle(),
       UIManager.PTRKeyframesView.Commands[name],
