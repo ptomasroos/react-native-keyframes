@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+// @flow
+
+import React from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 
 import Scene1 from './Scene1';
 import Scene2 from './Scene2';
 
-class Basic extends Component {
+type Props = {};
+
+type State = {
+  scene: string,
+};
+
+class App extends React.Component<Props, State> {
   state = {
-    scene: 'Scene1'
+    scene: 'Scene1',
   };
 
   changeScene = scene => {
@@ -28,4 +36,4 @@ class Basic extends Component {
   }
 }
 
-export default Basic;
+export default App;
