@@ -1,6 +1,6 @@
 {
   "name": "react-native-keyframes",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React Native wrapper for Facebook Keyframes with a imperative API",
   "main": "index.js",
   "scripts": {
@@ -34,21 +34,21 @@
       "./node_modules/.bin/prettier --single-quote --trailing-comma all --bracket-spacing --write",
       "git add"
     ]
-  },  
+  },
   "author": "Tomas Roos <ptomasroos@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-     "react-native": "*",
-     "react": "*"
-   },
-   "devDependencies": {
+    "react-native": "*",
+    "react": "*"
+  },
+  "devDependencies": {
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "flow-bin": "^0.78.0",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
-    "release-it": "^7.6.3"    
+    "release-it": "^7.6.3"
   },
   "bugs": {
     "url": "https://github.com/ptomasroos/react-native-keyframes/issues"
