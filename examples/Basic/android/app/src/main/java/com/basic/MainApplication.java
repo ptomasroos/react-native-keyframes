@@ -1,6 +1,7 @@
 package com.basic;
 
 import android.app.Application;
+
 import com.PTR.Keyframes.KeyframesPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -20,16 +21,16 @@ public class MainApplication extends Application implements ReactApplication {
     }
 
     @Override
-    protected String getJSMainModuleName() {
-      return "index.android";
-    }
-
-    @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-              new KeyframesPackage()
+          new KeyframesPackage()
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 

@@ -3,11 +3,23 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "postinstall": "rm -fr node_modules/react-native-keyframes/* && cd .. && cd .. && npm pack && tar -zxvf react-native-keyframes-*.tgz --strip-components 1  --directory examples/Basic/node_modules/react-native-keyframes/",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start-sync": "sane '/usr/bin/rsync -v -a ./node_modules/react-native-keyframes/ ../../' ./node_modules/react-native-keyframes/ --glob=** --watchman",
+    "test": "jest"
   },
   "dependencies": {
-    "react-native": "0.43.0-rc.4",
-    "react": "16.0.0-alpha.3",
-    "@ptomasroos/react-native-keyframes": "file:../../"
+    "react": "16.6.0-alpha.8af6728",
+    "react-native": "0.57.4",
+    "react-native-keyframes": "*"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.49.0",
+    "react-test-renderer": "16.6.0-alpha.8af6728"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
